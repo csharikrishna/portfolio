@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" type="text/css" href="contactme.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Let's Create Something Extraordinary!</h1>
+        <p>If you're ready to turn your ideas into reality, fill out the form below and let's get started!</p>
+        <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required aria-label="Your Name">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required aria-label="Your Email">
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" aria-label="Company Name">
+            <label for="project">Tell me about your project:</label>
+            <textarea id="project" name="project" required aria-label="Project Description"></textarea>
+            <label for="deadline">Project Deadline:</label>
+            <input type="date" id="deadline" name="deadline" aria-label="Project Deadline">
+            <input type="submit" value="Submit">
+        </form>
+        
+        <div class="social-links">
+            <h2>Connect with me:</h2>
+            <ul>
+                <li><a href="csharikrishna1806@gmail.com" aria-label="Email"><img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Email"></a></li>
+                <li><a href="www.linkedin.com/in/hari-krishna-chinnapattu-s-375669275" target="_blank" aria-label="LinkedIn"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"></a></li>
+                <li><a href="https://github.com/csharikrishna" target="_blank" aria-label="GitHub"><img src="https://img.icons8.com/material-outlined/48/000000/github.png" alt="GitHub"></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

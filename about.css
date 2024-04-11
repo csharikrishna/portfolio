@@ -1,0 +1,207 @@
+/* Body and Container Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F5EF;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #DBE7D0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInContainer 1s ease-in-out;
+}
+
+/* Header Styles */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0A2911;
+    animation: fadeInHeading 1s ease-in-out;
+}
+
+/* Content Styles */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 30px;
+    animation: fadeInContent 1s ease-in-out;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: pulse 1s infinite alternate;
+}
+
+.details {
+    flex: 1;
+}
+
+.personal-info {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.name, .age, .occupation {
+    font-weight: bold;
+}
+
+.location {
+    text-align: center;
+}
+
+.location-text {
+    font-style: italic;
+    color: #777;
+}
+
+/* Section Styles */
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0A2911;
+    border-bottom: 2px solid #0A2911;
+    padding-bottom: 10px;
+    text-align: center;
+    animation: fadeInSectionTitle 1s ease-in-out;
+}
+
+.section-content {
+    margin-bottom: 30px;
+}
+
+.section {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job h3, .institution h3, .certification h3, .role h3, .award h3, .skills h3 {
+    margin-bottom: 10px;
+    color: #0A2911;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.company, .degree, .issuer, .organization, .association {
+    font-weight: bold;
+}
+
+.duration, .issued-date {
+    font-style: italic;
+}
+
+.skill {
+    display: inline-block;
+    background-color: #E4EAE0;
+    color: #333;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.skill:last-child {
+    margin-right: 0;
+}
+
+.skill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .skill {
+        padding: 10px 15px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInHeading {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSectionTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}

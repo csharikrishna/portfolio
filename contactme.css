@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    animation: fadeInBody 1s ease;
+}
+
+@keyframes fadeInBody {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInContainer 1s ease;
+}
+
+@keyframes fadeInContainer {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: fadeInText 1s ease;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+    animation: fadeInText 1s ease;
+}
+
+form {
+    margin-top: 20px;
+    animation: fadeInForm 1s ease;
+}
+
+@keyframes fadeInForm {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 700;
+}
+
+input[type="text"], input[type="email"], textarea, input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.social-links {
+    margin-top: 40px;
+    text-align: center;
+    animation: slideInSocialLinks 1s ease;
+}
+
+@keyframes slideInSocialLinks {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.social-links h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 20px;
+    animation: fadeInText 1s ease;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-links ul li:last-child {
+    margin-right: 0;
+}
+
+.social-links ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.social-links ul li a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease;
+}
+
+.social-links ul li a img:hover {
+    transform: scale(1.2);
+}

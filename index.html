@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- Menu Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!-- Menu Container -->
+        <div class="maincontainer" id="menuContainer" style="display: none;">
+            <div class="col-md-6 order-md-1">
+                <nav class="navi">
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-user btn btn-primary"></i> About </a></li>
+                        <li><a href="contactme.html"><i class="fas fa-handshake"></i> CollabWorks</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+   
+    <div class="container">
+        <section id="intro" class="row">
+            <div class="col-md-6 order-md-2">
+                <div class="img-container">
+                    <img src="profilepic.png" alt="Your Photo" class="img-fluid rounded mb-4">
+                </div>
+                <h2 class="name">CHINNAPATTU S HARI KRISHNA</h2>
+                <p class="designation">VIT-AP Sophomore| Front-End Developer | CSI V-IDEAS Team Member</p>
+                <div class="social-links">
+                    <a href="https://github.com/csharikrishna" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="www.linkedin.com/in/hari-krishna-chinnapattu-s-375669275" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/qr/QT7DGFG7ANR5F1 " target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/harikrishnacs__/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    
+                </div>
+                <div class="options">
+                    <nav>
+                        <ul>
+                            <li><a href="22BCE9001 RESUME.pdf" class="btn btn-primary ">Download Resume</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menuContainer = document.getElementById("menuContainer");
+            if (menuContainer.style.display === "none") {
+                menuContainer.style.display = "block";
+            } else {
+                menuContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

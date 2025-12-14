@@ -14,11 +14,15 @@ const Contact = () => {
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // EmailJS Configuration
-  // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
-  const EMAILJS_SERVICE_ID = 'service_821j26l'; // e.g., 'service_abc1234'
-  const EMAILJS_TEMPLATE_ID = 'template_0yy1vwi'; // e.g., 'template_xyz5678'
-  const EMAILJS_PUBLIC_KEY = 'pgsVPApQOQKVvc40_'; // e.g., 'abcd1234efgh5678'
+  // EmailJS Configuration from Environment Variables
+  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+  // Validate that environment variables are loaded
+  if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+    console.error('EmailJS configuration missing. Please check environment variables.');
+  }
 
   const handleChange = (e) => {
     setFormData({

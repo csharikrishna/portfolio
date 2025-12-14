@@ -2,7 +2,12 @@
 
 A modern, responsive personal portfolio website built with React, showcasing my skills, projects, experience, and achievements as a Computer Science Engineering student and Full-Stack Developer.
 
-Live Demo: https://your-portfolio.vercel.app
+Live Demo: [https://csharikrishna.vercel.app](https://csharikrishna.vercel.app)
+
+![React](https://img.shields.io/badge/React-18-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)
+![EmailJS](https://img.shields.io/badge/EmailJS-Contact%20Form-green)
 
 ---
 
@@ -11,9 +16,9 @@ Live Demo: https://your-portfolio.vercel.app
 - Clean and professional UI with solid colors and strong typography
 - Fully responsive design (mobile and desktop)
 - Fast performance with React hooks and functional components
-- Working contact form with EmailJS integration
+- Functional contact form powered by EmailJS
 - Secure environment variable configuration
-- Auto-deployed on Vercel
+- Continuous deployment via Vercel
 - Semantic HTML and accessible components
 
 ---

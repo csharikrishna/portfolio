@@ -12,6 +12,18 @@ import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
+  // Set base path for GitHub Pages deployment
+  React.useEffect(() => {
+    // This ensures smooth scrolling works correctly
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   return (
     <div className="App">
       <Header />

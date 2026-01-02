@@ -1,14 +1,49 @@
 import React from 'react';
+import { FaUser, FaMapMarkerAlt, FaGraduationCap, FaAward, FaLanguage } from 'react-icons/fa';
 import '../styles/About.css';
 
 const About = () => {
+  const infoItems = [
+    {
+      icon: <FaUser />,
+      label: 'Name',
+      value: 'Chinnapattu S Hari Krishna'
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      label: 'Location',
+      value: 'Andhra Pradesh, India'
+    },
+    {
+      icon: <FaGraduationCap />,
+      label: 'Education',
+      value: 'B.Tech CSE, VIT-AP'
+    },
+    {
+      icon: <FaAward />,
+      label: 'CGPA',
+      value: '8.12'
+    },
+    {
+      icon: <FaLanguage />,
+      label: 'Languages',
+      value: 'English, Telugu, Tamil'
+    }
+  ];
+
   return (
     <section id="about" className="about">
-      <div className="container">
-        <h2 className="section-title">About Me</h2>
+      <div className="about-container">
+        <div className="about-header">
+          <h2 className="about-title">About Me</h2>
+          <p className="about-subtitle">
+            Passionate developer building innovative solutions with code
+          </p>
+        </div>
+
         <div className="about-content">
-          <div className="about-text">
-            <p>
+          <div className="about-text-card">
+            <p className="about-intro">
               I'm a Computer Science student at Vellore Institute of Technology with a strong passion 
               for creating innovative technological solutions. My journey in tech has been driven by 
               curiosity and a desire to solve real-world problems through code.
@@ -25,7 +60,7 @@ const About = () => {
               Models, achieving significant results in areas like oil spill detection using computer vision. 
               I'm also experienced in IoT development, having created safety systems using Raspberry Pi.
             </p>
-            <p>
+            <p className="about-closing">
               In addition to technical work, I've demonstrated leadership as a Content Team Lead at V Ideas, 
               where I led a 10-member team and increased Instagram engagement by 35% through data-driven 
               strategies. I'm always eager to collaborate on innovative projects and contribute to meaningful 
@@ -33,27 +68,23 @@ const About = () => {
             </p>
           </div>
 
-          <div className="about-info">
-            <div className="info-item">
-              <span className="info-label">Name:</span>
-              <span className="info-value">Chinnapattu S Hari Krishna</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Location:</span>
-              <span className="info-value">Andhra Pradesh, India</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Education:</span>
-              <span className="info-value">B.Tech CSE, VIT-AP</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">CGPA:</span>
-              <span className="info-value">8.12</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Languages:</span>
-              <span className="info-value">English, Telugu, Tamil</span>
-            </div>
+          <div className="about-info-card">
+            <h3 className="info-card-title">Quick Info</h3>
+            {infoItems.map((item, index) => (
+              <div 
+                key={index} 
+                className="info-item"
+                style={{ '--animation-order': index }}
+              >
+                <div className="info-icon">
+                  {item.icon}
+                </div>
+                <div className="info-content">
+                  <span className="info-label">{item.label}</span>
+                  <span className="info-value">{item.value}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

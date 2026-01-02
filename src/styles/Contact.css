@@ -1,174 +1,667 @@
+/* =========================================
+   CONTACT - Light Glassmorphism Design
+   Industry Standard 2025
+   ========================================= */
 .contact {
-  background-color: var(--bg-primary);
+  position: relative;
+  padding: 6rem 0 4rem 0; /* Optimal spacing: 96px top, 64px bottom */
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+  margin-bottom: 0; /* Ensures no gap with footer */
 }
 
-.contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
+/* Background Pattern - Subtle & Modern */
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.contact-info h3 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
+.contact-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 1;
+}
+
+/* Header - Clear Visual Hierarchy (Best Practice 2025) */
+.contact-header {
+  text-align: center;
+  margin-bottom: 3.5rem; /* 56px - Industry standard */
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-title {
+  font-size: clamp(2rem, 5vw, 2.5rem); /* Responsive font sizing */
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.contact-info > p {
+.contact-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--text-secondary);
-  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content Grid - Responsive Layout */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem; /* 32px gap - Industry standard */
+  margin-bottom: 0; /* No extra margin */
+}
+
+/* =========================================
+   CONTACT INFO CARD - Light Glass
+   ========================================= */
+.contact-info-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 8px 32px rgba(100, 116, 139, 0.08),
+    0 1px 0 0 rgba(255, 255, 255, 1) inset;
+  animation: slideInLeft 0.8s ease-out;
+  height: fit-content; /* Prevents stretching */
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-info-header h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.contact-info-header p {
+  color: var(--text-secondary);
+  line-height: 1.7;
   margin-bottom: 2rem;
 }
 
-.contact-details {
+/* Contact Methods - Improved Accessibility */
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Reduced from 1.25rem for tighter spacing */
   margin-bottom: 2rem;
 }
 
-.contact-item {
+.contact-method {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.contact-icon {
-  font-size: 1.5rem;
-  color: var(--secondary-color);
-  margin-top: 0.25rem;
+.contact-method:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateX(8px);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.12);
 }
 
-.contact-item h4 {
-  font-size: var(--font-size-md);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.contact-item p,
-.contact-item a {
-  color: var(--text-secondary);
-  text-decoration: none;
-}
-
-.contact-item a:hover {
-  color: var(--secondary-color);
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-links a {
+.contact-method-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  border-radius: 50%;
-  font-size: 1.25rem;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  background-color: var(--secondary-color);
+  width: 48px;
+  height: 48px;
+  background: var(--method-color);
+  border-radius: 12px;
   color: white;
-  transform: translateY(-3px);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 4px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Contact Form */
-.contact-form {
-  background-color: var(--bg-secondary);
-  padding: 2rem;
-  border-radius: 10px;
+.contact-method:hover .contact-method-icon {
+  transform: scale(1.1) rotate(-5deg);
 }
 
+.contact-method-content h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.contact-method-content p,
+.contact-method-content a {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  word-break: break-word; /* Prevents overflow */
+}
+
+.contact-method-content a:hover {
+  color: var(--primary-blue);
+}
+
+.contact-method-content a:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Divider */
+.contact-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(226, 232, 240, 0.8) 50%,
+    transparent
+  );
+  margin: 1.5rem 0; /* Reduced spacing */
+}
+
+/* Social Section - CTA Best Practice */
+.contact-social {
+  margin-top: 1.5rem;
+}
+
+.contact-social h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.contact-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contact-social-link:hover {
+  background: white;
+  color: var(--social-color);
+  border-color: var(--social-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.contact-social-link:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+  transform: translateY(-2px);
+}
+
+/* Specific social colors */
+.contact-social-link:nth-child(1):hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.contact-social-link:nth-child(2):hover {
+  color: #0077b5;
+  border-color: #0077b5;
+}
+
+.contact-social-link:nth-child(3):hover {
+  color: #1da1f2;
+  border-color: #1da1f2;
+}
+
+.contact-social-link:nth-child(4):hover {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  border-color: transparent;
+}
+
+/* =========================================
+   CONTACT FORM CARD - Enhanced UX 2025
+   ========================================= */
+.contact-form-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 8px 32px rgba(100, 116, 139, 0.08),
+    0 1px 0 0 rgba(255, 255, 255, 1) inset;
+  animation: slideInRight 0.8s ease-out;
+  height: fit-content;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Form Groups - Improved Spacing */
 .form-group {
+  margin-bottom: 1.25rem; /* Reduced for tighter form */
+}
+
+.form-group:last-of-type {
   margin-bottom: 1.5rem;
 }
 
 .form-group label {
   display: block;
-  font-size: var(--font-size-md);
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
+}
+
+.required {
+  color: var(--accent-red);
+  font-size: 1rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: var(--font-size-md);
-  font-family: var(--font-primary);
+  padding: 0.875rem 1.125rem;
+  font-size: 1rem;
+  font-family: inherit;
   color: var(--text-primary);
-  background-color: var(--bg-primary);
-  border: 2px solid var(--border-color);
-  border-radius: 5px;
-  transition: var(--transition);
+  background: rgba(248, 250, 252, 0.8);
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--secondary-color);
+  background: white;
+  border-color: var(--primary-blue);
   outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Improved error state */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--accent-red);
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 120px; /* Reduced height */
+  max-height: 300px;
 }
 
+/* Form Status - Enhanced Feedback */
 .form-status {
-  padding: 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  font-size: var(--font-size-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-status.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  border: 2px solid var(--accent-green);
+  color: #065f46;
 }
 
 .form-status.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 2px solid var(--accent-red);
+  color: #991b1b;
 }
 
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.form-status.success .status-icon {
+  background: var(--accent-green);
+  color: white;
+}
+
+.form-status.error .status-icon {
+  background: var(--accent-red);
+  color: white;
+}
+
+.form-status p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* Submit Button - CTA Best Practice 2025 */
 .submit-btn {
   width: 100%;
-  padding: 0.875rem 2rem;
-  font-size: var(--font-size-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: white;
-  background-color: var(--secondary-color);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue-darker) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled)::before {
+  opacity: 1;
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: #2980b9;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.submit-btn:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 4px;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .submit-btn:disabled {
-  background-color: var(--text-secondary);
+  background: linear-gradient(135deg, var(--text-muted) 0%, var(--text-secondary) 100%);
   cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
 }
 
-/* Responsive */
+.btn-text,
+.btn-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.submit-btn:hover:not(:disabled) .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Responsive Design - Mobile First Approach */
 @media (max-width: 968px) {
+  .contact {
+    padding: 4rem 0 3rem 0;
+  }
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .contact-form-card {
+    order: 1; /* Form first on mobile */
+  }
+
+  .contact-info-card {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 3rem 0 2rem 0;
+  }
+
+  .contact-container {
+    padding: 0 1.5rem;
+  }
+
+  .contact-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 1.5rem;
+  }
+
+  .contact-method {
+    padding: 1rem;
+  }
+
+  .contact-method-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.125rem;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 2.5rem 0 1.5rem 0;
+  }
+
+  .contact-container {
+    padding: 0 1rem;
+  }
+
+  .contact-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-methods {
+    gap: 0.875rem;
+  }
+
+  .contact-method {
+    padding: 0.875rem;
+  }
+
+  .contact-method-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .contact-social-links {
+    gap: 0.625rem;
+  }
+
+  .contact-social-link {
+    width: 44px;
+    height: 44px;
+    font-size: 1.125rem;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .contact {
+    background: white;
+    padding: 2rem 0;
+  }
+
+  .contact-form-card {
+    display: none;
+  }
+
+  .contact-info-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Accessibility - WCAG 2.1 Level AA */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode - WCAG AAA */
+@media (prefers-contrast: high) {
+  .contact-info-card,
+  .contact-form-card {
+    border: 2px solid var(--primary-blue);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    border: 2px solid var(--text-primary);
+  }
+
+  .contact-method {
+    border: 2px solid #cbd5e1;
+  }
+
+  .submit-btn {
+    border: 2px solid var(--primary-blue-darker);
+  }
+}
+
+/* Dark Mode Support - Future Ready */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles if needed */
 }

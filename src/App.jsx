@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
+import ScrollProgress from './components/ui/ScrollProgress';
+import SectionReveal from './components/ui/SectionReveal';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -26,16 +28,17 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Achievements />
-        <Contact />
+        <SectionReveal><About /></SectionReveal>
+        <SectionReveal><Skills /></SectionReveal>
+        <SectionReveal><Experience /></SectionReveal>
+        <SectionReveal><Projects /></SectionReveal>
+        <SectionReveal><Education /></SectionReveal>
+        <SectionReveal><Achievements /></SectionReveal>
+        <SectionReveal><Contact /></SectionReveal>
       </main>
       <Footer />
     </div>

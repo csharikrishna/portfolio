@@ -107,7 +107,7 @@ REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
 REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-Important: Make sure `.env` is added to `.gitignore` (it should be by default in Create React App).
+Important: Make sure `.env` is added to `.gitignore`.
 
 Get your credentials from EmailJS: https://www.emailjs.com/
 
@@ -117,7 +117,7 @@ Get your credentials from EmailJS: https://www.emailjs.com/
 npm start
 ```
 
-Visit http://localhost:3000
+Visit http://localhost:5173
 
 Hot reload is enabled—changes in components and styles will update automatically.
 
@@ -222,10 +222,9 @@ Modify colors, spacing, and typography in `src/styles/` directory.
 
 | Command | Description |
 |---------|-------------|
-| npm start | Run development server at http://localhost:3000 |
+| npm start | Run development server at http://localhost:5173 |
 | npm run build | Build optimized production bundle |
-| npm test | Run tests (if configured) |
-| npm run eject | Eject from Create React App (irreversible) |
+| npm run preview | Preview production build locally |
 
 ---
 
@@ -247,6 +246,6 @@ Chinnapattu S Hari Krishna
 
 ## Acknowledgments
 
-- Built with Create React App (https://create-react-app.dev/)
+- Built with Vite (https://vitejs.dev/)
 - Icons from React Icons (https://react-icons.github.io/react-icons/)
 - Email service by EmailJS (https://www.emailjs.com/)

@@ -8,4 +8,7 @@ export default defineConfig({
     open: true,
     host: true, // Exposes the server to the network
   },
+  build: {
+    outDir: 'build',
+  },
 });

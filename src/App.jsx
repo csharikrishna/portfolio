@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import ScrollProgress from './components/ui/ScrollProgress';
 import SectionReveal from './components/ui/SectionReveal';
+import Cursor from './components/ui/Cursor';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <Cursor />
       <ScrollProgress />
       <Header />
       <main>

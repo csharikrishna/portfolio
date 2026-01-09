@@ -1,0 +1,211 @@
+/* =========================================================
+   GLOBAL CURSOR CONTAINER
+========================================================= */
+.cursor-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  overflow: hidden;
+}
+
+/* =========================================================
+   CORE GLASS LENS CURSOR (MAGIC STICK)
+========================================================= */
+.custom-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  /* === Glass Refraction Core === */
+  background:
+    radial-gradient(
+      circle at 28% 28%,
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0.12) 38%,
+      rgba(255, 255, 255, 0.05) 55%,
+      rgba(255, 255, 255, 0) 72%
+    );
+
+  /* === Optical Magnification === */
+  backdrop-filter:
+    blur(1px)
+    brightness(1.06)
+    contrast(1.04)
+    saturate(1.1);
+  -webkit-backdrop-filter:
+    blur(1px)
+    brightness(1.06)
+    contrast(1.04)
+    saturate(1.1);
+
+  /* === Lens Rim === */
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  /* === Depth + Glow === */
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    inset 0 0 18px rgba(255, 255, 255, 0.55),
+    inset 0 0 2px rgba(255, 255, 255, 0.9),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+
+  transform: translate(-50%, -50%);
+  will-change: transform, filter;
+}
+
+/* =========================================================
+   MAGIC AURA (ENERGY FIELD)
+========================================================= */
+.custom-cursor::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(120, 180, 255, 0.15),
+      rgba(120, 180, 255, 0.05) 45%,
+      transparent 70%
+    );
+
+  filter: blur(12px);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+/* =========================================================
+   MICRO SPECULAR HIGHLIGHT (REAL GLASS FEEL)
+========================================================= */
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 22%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.9);
+  filter: blur(2px);
+  opacity: 0.75;
+}
+
+/* =========================================================
+   HOVER STATE — MAGNIFICATION & FOCUS
+========================================================= */
+body.hovering .custom-cursor {
+  backdrop-filter:
+    blur(0px)
+    brightness(1.14)
+    contrast(1.12)
+    saturate(1.2);
+  -webkit-backdrop-filter:
+    blur(0px)
+    brightness(1.14)
+    contrast(1.12)
+    saturate(1.2);
+
+  border-color: rgba(100, 170, 255, 0.45);
+
+  box-shadow:
+    0 20px 55px rgba(90, 160, 255, 0.22),
+    inset 0 0 25px rgba(255, 255, 255, 0.75),
+    inset 0 0 3px rgba(255, 255, 255, 1);
+}
+
+body.hovering .custom-cursor::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   CLICK STATE — COMPRESSION & ENERGY BURST
+========================================================= */
+body.clicking .custom-cursor {
+  backdrop-filter:
+    blur(0.3px)
+    brightness(1.02)
+    contrast(1.08);
+  -webkit-backdrop-filter:
+    blur(0.3px)
+    brightness(1.02)
+    contrast(1.08);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   PARTICLES (SNOW / MAGIC DUST)
+========================================================= */
+.snow-particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95),
+    rgba(180, 220, 255, 0.6)
+  );
+
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   SHOCKWAVE RING
+========================================================= */
+.shockwave {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(140, 200, 255, 0.9);
+  box-shadow: 0 0 15px rgba(120, 180, 255, 0.6);
+
+  animation: shockwave-expand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes shockwave-expand {
+  from {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.9;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   HIDE NATIVE CURSOR (DESKTOP ONLY)
+========================================================= */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES — DISABLE CUSTOM CURSOR
+========================================================= */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-container {
+    display: none;
+  }
+
+  * {
+    cursor: auto !important;
+  }
+}

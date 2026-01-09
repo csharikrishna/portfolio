@@ -66,7 +66,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -78,7 +78,7 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+  background: linear-gradient(135deg, var(--primary-blue-darker) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -101,14 +101,14 @@
 .hero-tagline {
   font-size: 1rem;
   letter-spacing: 0.04em;
-  color: #64748b;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
   min-height: 1.75rem;
   line-height: 1.75rem;
 }
 
 .cursor-blink {
-  color: #3b82f6;
+  color: var(--primary-blue);
   animation: blink 1s infinite;
   margin-left: 2px;
 }
@@ -127,7 +127,7 @@
 }
 
 .highlight-text {
-  color: #3b82f6;
+  color: var(--primary-blue);
   font-weight: 600;
 }
 
@@ -145,11 +145,11 @@
 .btn {
   position: relative;
   padding: 0.85rem 2rem;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-weight: 600;
   font-size: 0.95rem;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: var(--transition-smooth);
   cursor: pointer;
   border: none;
   text-decoration: none;
@@ -157,7 +157,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: var(--gradient-blue);
   color: white;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
@@ -169,14 +169,14 @@
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.9);
-  color: #3b82f6;
+  color: var(--primary-blue);
   border: 1px solid rgba(59, 130, 246, 0.2);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
   background: rgba(59, 130, 246, 0.05);
-  border-color: #3b82f6;
+  border-color: var(--primary-blue);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }

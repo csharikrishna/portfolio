@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from "react-icons/fa";
 import { motion, useReducedMotion } from "framer-motion";
 import Snowfall from "react-snowfall";
 import "../styles/Hero.css";
@@ -16,14 +16,18 @@ const SNOWFLAKE1 = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 const SNOWFLAKE2 = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e0f2fe' stroke='none'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v4M12 18v4M2 12h4M18 12h4' stroke='%23e0f2fe' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E`;
 const SNOWFLAKE3 = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dd3fc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v20M2 12h20'/%3E%3Cpath d='m4 4 16 16M4 20 20 4'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E`;
 
+/**
+ * Hero Section Component
+ * Displays the main landing section with animated typewriter effect,
+ * snowfall animation, and social links.
+ */
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [snowflakeImages, setSnowflakeImages] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
-  
+
   const shouldReduceMotion = useReducedMotion();
 
   // Detect mobile device
@@ -73,33 +77,21 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, roleIndex, shouldReduceMotion]);
 
-  // Cursor follow effect (desktop only)
-  useEffect(() => {
-    if (isMobile) return;
-
-    const handleMouseMove = (e) => {
-      requestAnimationFrame(() => {
-        setCursorPosition({ x: e.clientX, y: e.clientY });
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [isMobile]);
-
-  const scrollToContact = () => {
+  // Scroll to contact section handler - memoized to prevent re-renders
+  const scrollToContact = useCallback(() => {
     const section = document.getElementById("contact");
     if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
+  }, []);
 
-  // Reduced animation variants
-  const fadeInUpVariant = {
+  // Animation variants - memoized for performance
+  const fadeInUpVariant = useMemo(() => ({
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: { opacity: 1, y: 0 }
-  };
+  }), [shouldReduceMotion]);
 
   return (
     <section id="home" className="hero">
+      {/* Snowfall Effect */}
       {!shouldReduceMotion && snowflakeImages.length > 0 && (
         <Snowfall
           color="#bae6fd"
@@ -120,16 +112,12 @@ const Hero = () => {
         />
       )}
 
-      {/* Custom cursor glow - Desktop only */}
-      {!isMobile && (
-        <div
-          className="custom-cursor"
-          style={{
-            left: `${cursorPosition.x}px`,
-            top: `${cursorPosition.y}px`,
-          }}
-        />
-      )}
+      {/* Floating decorative blobs */}
+      <div className="hero-decoration" aria-hidden="true">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+      </div>
 
       <div className="hero-container">
         <div className="hero-content">
@@ -138,7 +126,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={fadeInUpVariant}
-            transition={{ duration: 0.4, delay: 0 }}
+            transition={{ duration: 0.5, delay: 0 }}
           >
             Hello, I&apos;m
           </motion.p>
@@ -148,7 +136,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={fadeInUpVariant}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             Chinnapattu S Hari Krishna
           </motion.h1>
@@ -158,76 +146,82 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={fadeInUpVariant}
-            transition={{ duration: 0.4, delay: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
             Computer Science Student & Full-Stack Developer
           </motion.h2>
 
-          <motion.p
-            className="hero-tagline"
+          <motion.div
+            className="hero-tagline-wrapper"
             initial="hidden"
             animate="visible"
             variants={fadeInUpVariant}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            I <span className="highlight-text">{displayedText}</span>
-            {!shouldReduceMotion && <span className="cursor-blink">|</span>}
-          </motion.p>
+            <p className="hero-tagline">
+              I <span className="highlight-text">{displayedText}</span>
+              {!shouldReduceMotion && <span className="cursor-blink">|</span>}
+            </p>
+          </motion.div>
 
           <motion.p
             className="hero-description"
             initial="hidden"
             animate="visible"
             variants={fadeInUpVariant}
-            transition={{ duration: 0.4, delay: 0.25 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
           >
             Passionate about building intelligent, scalable solutions using
             full-stack development, AI/ML, and deep learning. Currently exploring
             Generative AI, Large Language Models, and NLP-driven systems.
           </motion.p>
 
-          <div className="hero-buttons">
-            <motion.button
+          <motion.div
+            className="hero-buttons"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUpVariant}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <button
               onClick={scrollToContact}
               className="btn btn-primary"
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUpVariant}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              whileHover={!shouldReduceMotion ? { scale: 1.05, boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)" } : {}}
-              whileTap={!shouldReduceMotion ? { scale: 0.95 } : {}}
+              {...(!shouldReduceMotion && {
+                whileHover: { scale: 1.05, y: -2 },
+                whileTap: { scale: 0.98 }
+              })}
             >
               Get in Touch
-            </motion.button>
+              <FaArrowRight className="btn-icon" />
+            </button>
 
-            <motion.a
+            <a
               href="https://github.com/csharikrishna"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUpVariant}
-              transition={{ duration: 0.4, delay: 0.35 }}
-              whileHover={!shouldReduceMotion ? { scale: 1.05 } : {}}
-              whileTap={!shouldReduceMotion ? { scale: 0.95 } : {}}
+              {...(!shouldReduceMotion && {
+                whileHover: { scale: 1.05, y: -2 },
+                whileTap: { scale: 0.98 }
+              })}
             >
               View Projects
-            </motion.a>
-          </div>
+            </a>
+          </motion.div>
 
           <motion.div
             className="hero-social"
             initial="hidden"
             animate="visible"
             variants={fadeInUpVariant}
-            transition={{ duration: 0.4, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
           >
             <a
               href="https://github.com/csharikrishna"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
+              className="social-link"
             >
               <FaGithub />
             </a>
@@ -237,6 +231,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
+              className="social-link"
             >
               <FaLinkedin />
             </a>
@@ -244,6 +239,7 @@ const Hero = () => {
             <a
               href="mailto:csharikrishna1806@gmail.com"
               aria-label="Email"
+              className="social-link"
             >
               <FaEnvelope />
             </a>
@@ -258,8 +254,10 @@ const Hero = () => {
           aria-hidden="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ delay: 1, duration: 1.5, repeat: Infinity }}
-        />
+          transition={{ delay: 1.2, duration: 1.5, repeat: Infinity }}
+        >
+          <div className="scroll-wheel"></div>
+        </motion.div>
       )}
     </section>
   );

@@ -480,3 +480,169 @@
   outline: 2px solid #3b82f6;
   outline-offset: 4px;
 }
+/* =========================================
+   DARK MODE - Projects Styles (Class-based)
+   ========================================= */
+html.dark .projects {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+}
+
+html.dark .projects::before {
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(96, 165, 250, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 40%);
+}
+
+html.dark .projects-title {
+  background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .projects-subtitle {
+  color: #94a3b8;
+}
+
+html.dark .projects-container {
+  gap: 2.5rem;
+}
+
+html.dark .project-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(51, 65, 85, 0.7) 100%);
+  border-color: rgba(71, 85, 105, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+html.dark .project-card:hover {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+html.dark .project-image {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+html.dark .project-title {
+  color: #f1f5f9;
+}
+
+html.dark .project-description {
+  color: #cbd5e1;
+}
+
+html.dark .tech-tag {
+  background: rgba(59, 130, 246, 0.2);
+  color: #bfdbfe;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+html.dark .tech-tag:hover {
+  background: rgba(96, 165, 250, 0.3);
+  border-color: #60a5fa;
+  color: #93c5fd;
+}
+
+html.dark .project-links {
+  gap: 1rem;
+}
+
+html.dark .project-links a {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+html.dark .project-links a:hover {
+  background: rgba(96, 165, 250, 0.3);
+  border-color: #60a5fa;
+  color: #93c5fd;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+html.dark *:focus-visible {
+  outline-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+}
+
+/* =========================================
+   DARK MODE - Projects Styles (Media Query Fallback)
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .projects {
+    background: linear-gradient(to bottom, #0f172a, #1e293b);
+  }
+
+  :root:not(.light) .projects::before {
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(96, 165, 250, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 40%);
+  }
+
+  :root:not(.light) .projects-title {
+    color: #f1f5f9;
+  }
+
+  :root:not(.light) .projects-container {
+    gap: 2.5rem;
+  }
+
+  :root:not(.light) .project-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(51, 65, 85, 0.7) 100%);
+    border-color: rgba(71, 85, 105, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  :root:not(.light) .project-card:hover {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  :root:not(.light) .project-image {
+    background: rgba(15, 23, 42, 0.8);
+  }
+
+  :root:not(.light) .project-title {
+    color: #f1f5f9;
+  }
+
+  :root:not(.light) .project-description {
+    color: #cbd5e1;
+  }
+
+  :root:not(.light) .tech-tag {
+    background: rgba(59, 130, 246, 0.2);
+    color: #bfdbfe;
+    border-color: rgba(96, 165, 250, 0.3);
+  }
+
+  :root:not(.light) .tech-tag:hover {
+    background: rgba(96, 165, 250, 0.3);
+    border-color: #60a5fa;
+    color: #93c5fd;
+  }
+
+  :root:not(.light) .project-links {
+    gap: 1rem;
+  }
+
+  :root:not(.light) .project-links a {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-color: rgba(96, 165, 250, 0.3);
+  }
+
+  :root:not(.light) .project-links a:hover {
+    background: rgba(96, 165, 250, 0.3);
+    border-color: #60a5fa;
+    color: #93c5fd;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+  }
+
+  :root:not(.light) *:focus-visible {
+    outline-color: #60a5fa;
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+  }
+}

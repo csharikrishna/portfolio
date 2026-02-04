@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+
+# Build artifacts
+build_output.log
+npm_debug.log
+
+# IDE
+.vscode/
+.idea/

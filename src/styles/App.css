@@ -79,11 +79,163 @@
   --gradient-text: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
   --gradient-bg-light: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   --gradient-bg-white: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  
+  /* ========== ANIMATION TIMINGS ========== */
+  --duration-instant: 75ms;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  /* ========== EASING FUNCTIONS ========== */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ========== ELEVATION SHADOWS ========== */
+  --shadow-elevation-1: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-elevation-2: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-elevation-3: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-elevation-4: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================
+   DARK MODE - Class-based (for manual toggle)
+   ========================================= */
+html.dark {
+  /* ========== DARK MODE COLORS ========== */
+  --primary-blue: #60a5fa;
+  --primary-blue-light: #93c5fd;
+  --primary-blue-dark: #3b82f6;
+  --primary-blue-darker: #1e40af;
+  
+  /* ========== TEXT COLORS - DARK MODE ========== */
+  --text-dark: #f1f5f9;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  
+  /* ========== BACKGROUND COLORS - DARK MODE ========== */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-dark: #1a1a2e;
+  --border-color: #334155;
+  
+  /* ========== GLASS COLORS - DARK MODE ========== */
+  --glass-white-start: rgba(15, 23, 42, 0.85);
+  --glass-white-end: rgba(30, 41, 59, 0.75);
+  --glass-border: rgba(71, 85, 105, 0.3);
+  --glass-border-hover: rgba(96, 165, 250, 0.4);
+  
+  /* ========== ACCENT COLORS - DARK MODE ========== */
+  --accent-color: #f87171;
+  --accent-green: #34d399;
+  --accent-purple: #a78bfa;
+  --accent-orange: #fbbf24;
+  --accent-red: #f87171;
+  
+  /* ========== GRADIENTS - DARK MODE ========== */
+  --gradient-blue: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  --gradient-text: linear-gradient(135deg, #f1f5f9 0%, #60a5fa 100%);
+  --gradient-bg-light: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --gradient-bg-white: linear-gradient(135deg, #1a1f35 0%, #0f172a 100%);
+
+  /* ========== SHADOWS - DARK MODE ========== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.6);
+
+  /* ========== ELEVATION SHADOWS - DARK MODE ========== */
+  --shadow-elevation-1: 0 2px 8px rgba(0, 0, 0, 0.32);
+  --shadow-elevation-2: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-3: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-elevation-4: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================
+   DARK MODE - System preference fallback
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    /* ========== DARK MODE COLORS ========== */
+    --primary-blue: #60a5fa;
+    --primary-blue-light: #93c5fd;
+    --primary-blue-dark: #3b82f6;
+    --primary-blue-darker: #1e40af;
+    
+    /* ========== TEXT COLORS - DARK MODE ========== */
+    --text-dark: #f1f5f9;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    
+    /* ========== BACKGROUND COLORS - DARK MODE ========== */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-dark: #1a1a2e;
+    --border-color: #334155;
+    
+    /* ========== GLASS COLORS - DARK MODE ========== */
+    --glass-white-start: rgba(15, 23, 42, 0.85);
+    --glass-white-end: rgba(30, 41, 59, 0.75);
+    --glass-border: rgba(71, 85, 105, 0.3);
+    --glass-border-hover: rgba(96, 165, 250, 0.4);
+    
+    /* ========== ACCENT COLORS - DARK MODE ========== */
+    --accent-color: #f87171;
+    --accent-green: #34d399;
+    --accent-purple: #a78bfa;
+    --accent-orange: #fbbf24;
+    --accent-red: #f87171;
+    
+    /* ========== GRADIENTS - DARK MODE ========== */
+    --gradient-blue: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    --gradient-text: linear-gradient(135deg, #f1f5f9 0%, #60a5fa 100%);
+    --gradient-bg-light: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    --gradient-bg-white: linear-gradient(135deg, #1a1f35 0%, #0f172a 100%);
+
+    /* ========== SHADOWS - DARK MODE ========== */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.32);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.6);
+
+    /* ========== ELEVATION SHADOWS - DARK MODE ========== */
+    --shadow-elevation-1: 0 2px 8px rgba(0, 0, 0, 0.32);
+    --shadow-elevation-2: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-elevation-3: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-elevation-4: 0 12px 32px rgba(0, 0, 0, 0.6);
+  }
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+}
+
+/* =========================================
+   ACCESSIBILITY - SKIP TO MAIN
+   ========================================= */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-blue);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-to-main:focus {
+  top: 0;
+  outline: 3px solid white;
+  outline-offset: 2px;
 }
 
 body {
@@ -116,6 +268,129 @@ body {
   background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%);
 }
 
+/* Dark Mode Scrollbar */
+html.dark::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+html.dark::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6 0%, #1e40af 100%);
+}
+
+html.dark::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+/* =========================================
+   ENHANCED FOCUS VISIBLE - Accessibility
+   ========================================= */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 2px;
+  box-shadow: 
+    0 0 0 4px rgba(59, 130, 246, 0.2),
+    0 0 0 8px rgba(59, 130, 246, 0.1);
+}
+
+/* Dark mode focus adjustment */
+@media (prefers-color-scheme: dark) {
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline-color: var(--primary-blue-light);
+    box-shadow: 
+      0 0 0 4px rgba(96, 165, 250, 0.3),
+      0 0 0 8px rgba(96, 165, 250, 0.15);
+  }
+}
+
+/* =========================================
+   MICRO-COPY & MICRO-INTERACTIONS
+   ========================================= */
+
+/* Gradient Text for Emphasis */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Micro-copy hint text */
+.micro-hint {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 0.375rem;
+  opacity: 0;
+  animation: slideInUp 0.3s ease-out 0.1s forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Emphasis badge */
+.emphasis-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #78350f;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Scale animation for interactive elements */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
 .App {
   min-height: 100vh;
   display: flex;
@@ -139,6 +414,8 @@ main {
 section {
   padding: var(--spacing-xl) 0;
   margin: 0;
+  /* Performance: Isolate section layout calculations */
+  contain: layout style;
 }
 
 section + section {

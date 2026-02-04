@@ -1,0 +1,479 @@
+/* =========================================
+   THEME TOGGLE - Premium Design
+   ========================================= */
+
+/* Theme Toggle Wrapper */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* Theme Label - Hide on small screens */
+.theme-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: none;
+}
+
+/* Main Toggle Button */
+.theme-toggle {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  overflow: visible;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--focus-color, #4a9eff);
+  outline-offset: 4px;
+  border-radius: 24px;
+}
+
+/* Toggle Track */
+.theme-toggle-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle.light .theme-toggle-track {
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.1),
+    0 8px 24px rgba(135, 206, 235, 0.4),
+    0 4px 12px rgba(100, 180, 220, 0.3);
+}
+
+.theme-toggle.dark .theme-toggle-track {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(79, 172, 254, 0.3),
+    0 4px 12px rgba(42, 98, 143, 0.2);
+}
+
+/* Toggle Thumb */
+.theme-toggle-thumb {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle.light .theme-toggle-thumb {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  box-shadow: 
+    0 4px 12px rgba(255, 215, 0, 0.5),
+    0 2px 6px rgba(255, 237, 78, 0.3),
+    inset 0 -2px 4px rgba(255, 193, 7, 0.3);
+}
+
+.theme-toggle.dark .theme-toggle-thumb {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  box-shadow: 
+    0 4px 12px rgba(79, 172, 254, 0.6),
+    0 2px 6px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(189, 189, 189, 0.3);
+}
+
+/* Theme Icons */
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-icon svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.sun-icon {
+  color: #FFD700;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+.moon-icon {
+  color: #4facfe;
+}
+
+/* Moon Craters */
+.crater {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(79, 172, 254, 0.3);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.crater-1 {
+  width: 4px;
+  height: 4px;
+  top: 6px;
+  left: 8px;
+}
+
+.crater-2 {
+  width: 3px;
+  height: 3px;
+  top: 14px;
+  right: 8px;
+}
+
+.crater-3 {
+  width: 2px;
+  height: 2px;
+  bottom: 8px;
+  left: 12px;
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, #fbbf24, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(251, 191, 36, 0.5);
+  pointer-events: none;
+  z-index: 1;
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Particles */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.8), transparent);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+}
+
+.theme-toggle.light .particle {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8), transparent);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.theme-toggle.dark .particle {
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.8), transparent);
+  box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ripple-animation 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+}
+
+.theme-toggle.light .ripple {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent 70%);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+}
+
+.theme-toggle.dark .ripple {
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.4), transparent 70%);
+  border: 2px solid rgba(79, 172, 254, 0.6);
+}
+
+@keyframes ripple-animation {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+/* Glow Effect */
+.theme-toggle-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(20px);
+  z-index: 0;
+  transition: all 0.4s ease;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.theme-toggle.light .theme-toggle-glow {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.6), transparent 70%);
+}
+
+.theme-toggle.dark .theme-toggle-glow {
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.6), transparent 70%);
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Border Gradient */
+.border-gradient {
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  padding: 2px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover .border-gradient {
+  opacity: 1;
+}
+
+.theme-toggle.light .border-gradient {
+  background: linear-gradient(
+    45deg,
+    #ffd700,
+    #ff6b35,
+    #ffd700,
+    #ff6b35
+  );
+  background-size: 300% 300%;
+}
+
+.theme-toggle:hover.light .border-gradient {
+  animation: gradient-shift 2s ease infinite;
+}
+
+.theme-toggle.dark .border-gradient {
+  background: linear-gradient(
+    45deg,
+    #4facfe,
+    #00f2fe,
+    #4facfe,
+    #00f2fe
+  );
+  background-size: 300% 300%;
+}
+
+.theme-toggle:hover.dark .border-gradient {
+  animation: gradient-shift 2s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: transparent;
+  border-radius: 24px;
+}
+
+/* Theme Label */
+.theme-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.theme-toggle.light ~ .theme-label {
+  color: #667eea;
+  text-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.theme-toggle.dark ~ .theme-label {
+  color: #4facfe;
+  text-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
+}
+
+/* Transitioning State */
+.theme-toggle.transitioning {
+  pointer-events: none;
+}
+
+.theme-toggle.transitioning .theme-toggle-thumb {
+  animation: pulse 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* =========================================
+   VIEW TRANSITION API STYLES
+   ========================================= */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483647;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 50px;
+    height: 26px;
+  }
+
+  .theme-toggle-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .theme-icon {
+    font-size: 10px;
+  }
+  
+  .theme-label {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle-track,
+  .theme-toggle-thumb,
+  .theme-icon,
+  .particle,
+  .star,
+  .sun-ray,
+  .theme-toggle-glow,
+  .border-gradient {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   THEME VARIABLES
+   ========================================= */
+
+:root[data-theme='dark'] {
+  --focus-color: #4facfe;
+}
+
+:root[data-theme='light'] {
+  --focus-color: #667eea;
+}
+
+/* =========================================
+   PRINT
+   ========================================= */
+
+@media print {
+  .theme-toggle,
+  .theme-toggle-wrapper {
+    display: none;
+  }
+}

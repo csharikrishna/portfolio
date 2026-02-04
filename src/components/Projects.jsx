@@ -110,6 +110,14 @@ const Projects = () => {
         'Real-time inference system with 5-7 second prediction time',
         'Optimized training using CLAHE, RandAugment, GridShuffle, EMA/SWA'
       ],
+      learnings: [
+        'Advanced deep learning model fine-tuning techniques',
+        'SAR imagery analysis and preprocessing methods',
+        'Cross-validation strategies for accurate model evaluation',
+        'Deployment optimization for production inference'
+      ],
+      challenges: 'High-resolution SAR imagery processing and balancing model accuracy with inference speed',
+      date: '2024-06',
       github: 'https://github.com/csharikrishna',
       demo: null
     },
@@ -125,6 +133,14 @@ const Projects = () => {
         'Analytics dashboard with results visualization',
         'Local storage integration for persistent sessions'
       ],
+      learnings: [
+        'Full-stack application architecture and best practices',
+        'State management in complex React applications',
+        'Database design for quiz data structure',
+        'Real-time updates and responsive user experience'
+      ],
+      challenges: 'Managing real-time data updates and ensuring smooth performance with large quiz sets',
+      date: '2024-03',
       github: 'https://github.com/csharikrishna',
       demo: null
     },
@@ -139,6 +155,14 @@ const Projects = () => {
         'Mobile notification system for safety alerts',
         'Gas usage monitoring and tracking'
       ],
+      learnings: [
+        'IoT systems design and sensor integration',
+        'Real-time embedded systems programming',
+        'Mobile app integration with hardware sensors',
+        'Safety-critical system development practices'
+      ],
+      challenges: 'Ensuring real-time responsiveness and reliable sensor accuracy in variable environments',
+      date: '2023-12',
       github: 'https://github.com/csharikrishna',
       demo: null
     }

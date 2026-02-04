@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /build/
+Disallow: /*.json
+Disallow: /*.map
+
+# Crawl delay (respectful crawling)
+Crawl-delay: 1
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://csharikrishna.vercel.app/sitemap.xml

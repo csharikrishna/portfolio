@@ -1,36 +1,66 @@
 # Professional Portfolio Website
 
-A modern, responsive personal portfolio website built with React, showcasing my skills, projects, experience, and achievements as a Computer Science Engineering student and Full-Stack Developer.
+A modern, high-performance personal portfolio website built with React 19, optimized for SEO, AEO (Answer Engine Optimization), and 2026 best practices. Showcasing full-stack development expertise, AI/ML projects, and professional achievements.
 
-Live Demo: [https://csharikrishna.vercel.app](https://csharikrishna.vercel.app)
+**Live Demo:** [https://csharikrishna.vercel.app](https://csharikrishna.vercel.app)
 
-![React](https://img.shields.io/badge/React-18-blue)
+![React](https://img.shields.io/badge/React-19.2.3-blue)
+![Vite](https://img.shields.io/badge/Vite-5.4.21-purple)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)
-![EmailJS](https://img.shields.io/badge/EmailJS-Contact%20Form-green)
+![SEO](https://img.shields.io/badge/SEO-Optimized-brightgreen)
 
 ---
 
 ## Features
 
-- Clean and professional UI with solid colors and strong typography
-- Fully responsive design (mobile and desktop)
-- Fast performance with React hooks and functional components
-- Functional contact form powered by EmailJS
-- Secure environment variable configuration
-- Continuous deployment via Vercel
-- Semantic HTML and accessible components
+### Core Functionality
+- Clean, professional UI with glassmorphism design
+- Dark/Light theme with system preference detection
+- Fully responsive across mobile, tablet, and desktop
+- High performance with Vite and React 19 Hooks
+- Functional contact form integration (EmailJS)
+- Semantic HTML and ARIA accessibility standards
+
+### Search Engine Optimization (SEO)
+- JSON-LD structured data (Person, Organization, BreadcrumbList, FAQPage)
+- XML sitemap with priority-based URL configuration
+- robots.txt with crawl directives
+- Meta tags optimization (canonical URL, Open Graph, Twitter Card)
+- Semantic HTML structure for improved indexation
+
+### Answer Engine Optimization (AEO)
+- FAQ component with FAQPage JSON-LD schema
+- AI-optimized content structure
+- Project metadata for rich context
+- Dublin Core metadata for content attribution
+
+### Performance
+- Lazy loading with React.lazy() and Suspense
+- Intersection Observer for scroll animations
+- CSS animations with reduced-motion support
+- Battery-saver mode detection
+- Resource hints (preconnect, preload, dns-prefetch)
+
+### Accessibility
+- Skip-to-main-content link
+- Full keyboard navigation support
+- ARIA labels and live regions
+- Focus-visible indicators
+- Reduced motion preference support
 
 ---
 
 ## Tech Stack
 
-- Frontend: React 18, JavaScript (ES6+), HTML5, CSS3
-- Styling: Custom CSS (modular per component)
-- Icons: React Icons
-- Email Service: EmailJS (@emailjs/browser)
-- Deployment: Vercel
-- Version Control: Git and GitHub
+| Category | Technologies |
+|----------|--------------|
+| **Framework** | React 19.2.3, Vite 5.4.21 |
+| **Styling** | CSS3, CSS Custom Properties, Framer Motion |
+| **Icons** | React Icons 4.12.0 |
+| **Animations** | Framer Motion 12.23.26 |
+| **Contact Form** | EmailJS 3.11.0 |
+| **Deployment** | Vercel |
 
 ---
 
@@ -39,37 +69,40 @@ Live Demo: [https://csharikrishna.vercel.app](https://csharikrishna.vercel.app)
 ```
 portfolio-website/
 ├── public/
-│   └── index.html
+│   ├── icon2.png            # Favicon
+│   ├── sitemap.xml          # XML sitemap
+│   └── robots.txt           # Crawler directives
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Education.jsx
-│   │   ├── Achievements.jsx
-│   │   ├── Contact.jsx
-│   │   └── Footer.jsx
-│   ├── styles/
-│   │   ├── App.css
-│   │   ├── Header.css
-│   │   ├── Hero.css
-│   │   ├── About.css
-│   │   ├── Skills.css
-│   │   ├── Experience.css
-│   │   ├── Projects.css
-│   │   ├── Education.css
-│   │   ├── Achievements.css
-│   │   ├── Contact.css
-│   │   └── Footer.css
+│   │   ├── Header.jsx       # Navigation with scroll effects
+│   │   ├── Hero.jsx         # Landing section
+│   │   ├── About.jsx        # Professional background
+│   │   ├── Skills.jsx       # Technical skills
+│   │   ├── Experience.jsx   # Work history
+│   │   ├── Projects.jsx     # Portfolio projects
+│   │   ├── Education.jsx    # Educational background
+│   │   ├── Achievements.jsx # Awards and recognitions
+│   │   ├── FAQ.jsx          # Frequently asked questions
+│   │   ├── Contact.jsx      # Contact form
+│   │   ├── Footer.jsx       # Footer section
+│   │   ├── ErrorBoundary.jsx
+│   │   └── ui/
+│   │       ├── Cursor.jsx       # Custom cursor
+│   │       ├── ThemeToggle.jsx  # Dark/Light mode
+│   │       ├── ScrollProgress.jsx
+│   │       ├── SectionReveal.jsx
+│   │       └── Loading.jsx
+│   ├── hooks/
+│   │   └── useCustomHooks.js    # Reusable React hooks
+│   ├── styles/                  # Component CSS files
 │   ├── App.jsx
-│   └── index.js
-├── .env
-├── .gitignore
-├── package.json
-└── README.md
+│   └── index.jsx
+├── .env.example             # Environment template
+├── index.html               # Entry HTML with SEO meta
+├── vite.config.js           # Vite configuration
+├── vercel.json              # Deployment config
+├── eslint.config.js         # ESLint configuration
+└── package.json
 ```
 
 ---
@@ -77,175 +110,132 @@ portfolio-website/
 ## Getting Started
 
 ### Prerequisites
-
-- Node.js (v16 or higher)
+- Node.js 18+ (v22 recommended)
 - npm or yarn
-- Git
 
 ### Installation
 
-**1. Clone the repository**
-
 ```bash
+# Clone the repository
 git clone https://github.com/csharikrishna/portfolio.git
 cd portfolio
-```
 
-**2. Install dependencies**
-
-```bash
+# Install dependencies
 npm install
+
+# Create environment file
+cp .env.example .env
+# Add your EmailJS credentials to .env
 ```
 
-### Environment Setup
-
-Create a `.env` file in the root directory:
-
-```
-REACT_APP_EMAILJS_SERVICE_ID=your_service_id
-REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
-REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-Important: Make sure `.env` is added to `.gitignore`.
-
-Get your credentials from EmailJS: https://www.emailjs.com/
-
-### Run Locally
+### Development
 
 ```bash
 npm start
 ```
+Opens at `http://localhost:5173` with hot module replacement.
 
-Visit http://localhost:5173
-
-Hot reload is enabled—changes in components and styles will update automatically.
-
-### Build for Production
+### Production Build
 
 ```bash
 npm run build
+npm run preview  # Preview at http://localhost:4173
 ```
-
-Creates an optimized production build in the `build/` directory.
 
 ---
 
-## EmailJS Setup
+## Environment Variables
 
-The contact form uses EmailJS to send messages directly from the frontend.
+Create a `.env` file with:
 
-### Step 1: Create EmailJS Account
-
-1. Go to https://www.emailjs.com/
-2. Sign up and verify your email
-3. Connect an email service (Gmail, Outlook, etc.)
-
-### Step 2: Create Email Template
-
-Create a template with the following variables:
-- user_name
-- user_email
-- subject
-- message
-
-Example template body:
-```
-From: {{user_name}} ({{user_email}})
-Subject: {{subject}}
-Message: {{message}}
-```
-
-### Step 3: Configure Environment Variables
-
-Add your EmailJS credentials to the `.env` file:
-
-```
+```bash
 REACT_APP_EMAILJS_SERVICE_ID=your_service_id
 REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
 REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-The `Contact.jsx` component reads these variables and sends the form data using `emailjs.sendForm()`.
+Get credentials from [EmailJS](https://www.emailjs.com/).
 
 ---
 
-## Deployment (Vercel)
+## Deployment
 
-### One-Time Setup
+### Vercel (Recommended)
 
-1. Push code to GitHub
-2. Go to https://vercel.com/ and import your repository
-3. Vercel auto-detects:
-   - Build Command: `npm run build`
-   - Output Directory: `build`
+1. Push to GitHub
+2. Import repository in [Vercel](https://vercel.com)
+3. Add environment variables in project settings
+4. Deploy automatically on every push to `main`
 
-### Add Environment Variables
+### Security Headers
 
-1. In your Vercel project dashboard, go to Settings and then Environment Variables
-2. Add your EmailJS credentials:
-   - REACT_APP_EMAILJS_SERVICE_ID
-   - REACT_APP_EMAILJS_TEMPLATE_ID
-   - REACT_APP_EMAILJS_PUBLIC_KEY
-3. Redeploy the project for variables to take effect
+Configured in `vercel.json`:
+- X-Content-Type-Options: nosniff
+- X-Frame-Options: SAMEORIGIN
+- X-XSS-Protection: 1; mode=block
+- Referrer-Policy: strict-origin-when-cross-origin
+- Permissions-Policy (no geolocation, microphone, camera)
 
-### Auto-Deployments
+---
 
-Every push to the `main` branch automatically deploys to production:
+## Custom Hooks
 
-```bash
-git add .
-git commit -m "Update portfolio"
-git push origin main
-```
+Located in `src/hooks/useCustomHooks.js`:
+
+| Hook | Purpose |
+|------|---------|
+| `useReducedMotionPreference` | Detect reduced motion preference |
+| `useWindowSize` | Track viewport dimensions |
+| `useIsMobile` | Mobile device detection |
+| `useScrollPosition` | Current scroll position |
+| `useScrollVelocity` | Scroll speed detection |
+| `useIsInViewport` | Element visibility detection |
+| `useTouchDevice` | Touch capability detection |
+| `useDebouncedValue` | Debounced state values |
+| `useBatterySaverMode` | Low power mode detection |
 
 ---
 
 ## Customization
 
-Update your personal information in these files:
-
-- Hero.jsx - Name, role, introduction, and CTA buttons
-- About.jsx - Bio, interests, location, and languages
-- Skills.jsx - Technical skills by category
-- Experience.jsx - Work experience and certifications
-- Projects.jsx - Portfolio projects with descriptions
-- Education.jsx - Educational background
-- Achievements.jsx - Awards and recognitions
-- Contact.jsx - Email, phone, location, and social links
-
-Modify colors, spacing, and typography in `src/styles/` directory.
-
----
-
-## Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| npm start | Run development server at http://localhost:5173 |
-| npm run build | Build optimized production bundle |
-| npm run preview | Preview production build locally |
+| Section | File | Updates |
+|---------|------|---------|
+| Hero | `src/components/Hero.jsx` | Name, role, intro |
+| About | `src/components/About.jsx` | Bio, expertise |
+| Skills | `src/components/Skills.jsx` | Technical skills |
+| Experience | `src/components/Experience.jsx` | Work history |
+| Projects | `src/components/Projects.jsx` | Portfolio items |
+| Education | `src/components/Education.jsx` | Degrees |
+| Contact | `src/components/Contact.jsx` | Contact info |
+| FAQ | `src/components/FAQ.jsx` | Q&A content |
+| SEO | `index.html` | Meta tags, JSON-LD |
 
 ---
 
-## License
+## Performance Targets
 
-MIT License - feel free to use this template for your portfolio!
+- **Lighthouse Performance:** 90+
+- **Accessibility:** 95+
+- **SEO:** 100
+- **Best Practices:** 95+
 
 ---
 
 ## Author
 
-Chinnapattu S Hari Krishna
+**Chinnapattu S Hari Krishna**
 
-- GitHub: https://github.com/csharikrishna
-- LinkedIn: https://linkedin.com/in/cs-harikrishna
+- Portfolio: [csharikrishna.vercel.app](https://csharikrishna.vercel.app)
+- GitHub: [@csharikrishna](https://github.com/csharikrishna)
+- LinkedIn: [cs-harikrishna](https://linkedin.com/in/cs-harikrishna)
 - Email: csharikrishna1806@gmail.com
 
 ---
 
-## Acknowledgments
+## License
 
-- Built with Vite (https://vitejs.dev/)
-- Icons from React Icons (https://react-icons.github.io/react-icons/)
-- Email service by EmailJS (https://www.emailjs.com/)
+MIT License - See LICENSE file for details.
+
+---
+
+**Last Updated:** February 2026 | **Status:** Production Ready
